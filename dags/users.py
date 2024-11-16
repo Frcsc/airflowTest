@@ -19,7 +19,8 @@ with DAG(
 ) as dag:
     run_print_users = DockerOperator(
         task_id='run_print_users',
-        image='sedia4/kb:v1.0.0',
+        image='sedia4/kb:v1.2.0',
+        # image='sedia4/kb:v1.2.0',
         # image='scripts/kb:v1.1.1',
         api_version='auto',
         auto_remove=True,
