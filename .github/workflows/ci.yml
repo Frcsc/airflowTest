@@ -1,8 +1,8 @@
 name: Airflow github actions
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
+  push:
+    # types: [opened, synchronize, reopened]
     branches:
       - staging
       - main
@@ -24,7 +24,4 @@ jobs:
       with:
         requirements-file: ./requirements.txt
         dags-path: ./dags
-        # dags-test-folder: project/tests
-        # var-file: project/var.json
         error-comment: True
-        # access-token: ${{ secrets.GITHUB_TOKEN }}
