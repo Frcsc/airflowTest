@@ -1,8 +1,7 @@
-name: Airflow github actions
+name: Airflow GitHub Actions
 
 on:
   push:
-    # types: [opened, synchronize, reopened]
     branches:
       - staging
       - main
@@ -19,10 +18,17 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v5
 
-    - name: 'Test Airflow DAGs'
+    - name: List DAG Files
+      run: ls -R ./dags
+
+    - name: Validate DAG Syntax
+      run: python -m py_compile $(find ./dags -name "*.py")
+
+    - name: Test Airflow DAGs
       uses: micael-grilo/airflow-dags-test-action@v2.10.1
       with:
         requirements-file: ./requirements.txt
         dags-path: ./dags
         error-comment: True
         var-file: ./var.json
+        dags-test-folder: ./tests
