@@ -25,3 +25,4 @@ jobs:
         requirements-file: ./requirements.txt
         dags-path: ./dags
         error-comment: True
+        var-file: ./empty.json
