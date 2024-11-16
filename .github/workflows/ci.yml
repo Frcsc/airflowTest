@@ -21,10 +21,10 @@ jobs:
 
     - name: 'Test Airflow DAGs'
       uses: micael-grilo/airflow-dags-test-action@v2.10.1
-        with:
-          requirements-file: ./requirements.txt
-          dags-path: ./dags
-          # dags-test-folder: project/tests
-          # var-file: project/var.json
-          error-comment: True
-          # access-token: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        requirements-file: ./requirements.txt
+        dags-path: ./dags
+        # dags-test-folder: project/tests
+        # var-file: project/var.json
+        error-comment: True
+        # access-token: ${{ secrets.GITHUB_TOKEN }}
